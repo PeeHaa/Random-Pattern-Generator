@@ -21,7 +21,7 @@
   </head>
   <body>
     <div id="main">
-      <div id="playfield" data-maximum-x="<?php echo $generator->getMaxWidth(); ?>" data-maximum-y="<?php echo $generator->getMaxHeight(); ?>">
+      <div id="playfield" data-maximum-x="<?php echo $generator->getMaxWidth(); ?>" data-maximum-y="<?php echo $generator->getMaxHeight(); ?>" data-debugging="<?php echo (RPG_ENV === RPG_ENV_DEBUG ? 'true' : 'false'); ?>">
         <?php
         foreach ($generator as $rowKey => $row) {
             foreach ($row as $columnKey => $column) {

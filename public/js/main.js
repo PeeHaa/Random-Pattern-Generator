@@ -1,5 +1,21 @@
+// this is where the magic is happening
 (function($) {
   var $playfield = $('#playfield');
+
+  // setup heavy duty debugging
+  if ($playfield.data('debugging') == true) {
+    console.log('===== Debugging started =====');
+    $(document).on('newRandomPatternGeneratorInstance', function(e, playfield, sizes) {
+      console.log('+ new RandomGeneratorInstance created');
+      console.log({
+        playfield: playfield,
+        maxWidth:  sizes.maxWidth,
+        maxHeight: sizes.maxHeight
+      });
+    });
+  }
+
+  // this is where the magic is happening
   var tileHistory = new TileHistory($playfield);
   var tileDebugger = new TileDebugger();
   var randomPatternGenerator = new RandomPatternGenerator($playfield, tileHistory, tileDebugger);

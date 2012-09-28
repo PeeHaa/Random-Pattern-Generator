@@ -5,9 +5,13 @@ function RandomPatternGenerator($playfield, tileHistory, tileDebugger)
   this.maxHeight = this.$playfield.data('maximum-y');
 
   this.options = [];
-  this.debugMode = false;
   this.tileHistory = tileHistory;
   this.tileDebugger = tileDebugger;
+
+  $(document).trigger('newRandomPatternGeneratorInstance', [
+    this.$playfield,
+    { maxWidth: this.maxWidth, maxHeight: this.maxHeight }
+  ]);
 
   // initializes everything for the class
   this.initialize = function () {
